@@ -1,2 +1,1 @@
-A# holbertonschool-higher_level_programming
-Starting with Python during Holberton School.
+#0x00 -python project

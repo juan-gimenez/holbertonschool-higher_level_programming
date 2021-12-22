@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def fizzbuzz():
     for int in range(1, 101):
         if int % 3 == 0 and int % 5 == 0:

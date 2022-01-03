@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-def delete_at(my_list=[], idx=0):
+def divisible_by_2(my_list=[]):
     if len(my_list) == 0:
         return
     tmp_list = my_list.copy()
-    lentmp = len(tmp_list)
+    lentmp = len(my_list)
     for i in range(lentmp):
-        if tmp_list[i] % 2 != 0:
-            tmp_list[i] = False
-        else:
+        if my_list[i] % 2 == 0:
             tmp_list[i] = True
-        return tmp_list
+        else:
+            tmp_list[i] = False
+    return tmp_list

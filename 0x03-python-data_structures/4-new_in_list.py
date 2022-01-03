@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def replace_in_list(my_list, idx, element):
-    newlist = my_list
+    newlist = my_list.copy()
     if idx < 0:
         return newlist
     lenidx = len(my_list)

@@ -10,7 +10,7 @@ class Square:
             pass
         elif size < 0:
             raise ValueError("size must be >= 0")
-        pass
+            pass
         else:
             self.__size = size
 

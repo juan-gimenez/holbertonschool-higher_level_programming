@@ -7,7 +7,7 @@ class Square:
     def __init__(self, size=0):
         self.size = size
 
-    @origin
+    @property
     def size(self):
         """size origin"""
         return self.__size
@@ -26,7 +26,7 @@ class Square:
         return(self.__size ** 2)
 
     def my_print(self):
-        if self.__size == 0:
+        if self.__size is 0:
             print()
         else:
             for x in range(self.__size):

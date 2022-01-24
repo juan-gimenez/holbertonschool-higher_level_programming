@@ -2,12 +2,12 @@
 """Class Rectangle"""
 
 
-class Rectangle:
+class Rectangle():
     """Class Rectangle"""
     def __init__(self, width=0, height=0):
         """Init Rectangle"""
-        self.width = width
         self.height = height
+        self.width = width
 
     @property
     def width(self):
@@ -21,14 +21,14 @@ class Rectangle:
             raise ValueError("width must be >= 0")
         self.__width = value
 
-        @property
-        def height(self):
-            return self.__height
+    @property
+    def height(self):
+        return self.__height
 
-        @height.setter
-        def height(self, value):
-            if (isinstance(value, int) is False):
-                raise TypeError("height must be an integer")
-            if (value < 0):
-                raise ValueError("height must be >= 0")
-            self.__height = value
+    @height.setter
+    def height(self, value):
+        if (isinstance(value, int) is False):
+            raise TypeError("height must be an integer")
+        if (value < 0):
+            raise ValueError("height must be >= 0")
+        self.__height = value

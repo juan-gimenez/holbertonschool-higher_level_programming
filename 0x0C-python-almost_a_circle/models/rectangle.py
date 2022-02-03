@@ -80,3 +80,48 @@ class Rectangle(Base):
             for b in range(self.__width):
                 print("#", end="")
             print()
+
+    def __str__(self):
+        """ print """
+        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} \
+- {self.__width}/{self.__height}"
+
+    def update(self, *args, **kwargs):
+        """updates values of rect"""
+        length = len(args)
+        if args is not None and length > 0:
+            a = 0
+            for arguments in args:
+                if a == 0:
+                    self.id = arguments
+                elif a == 1:
+                    self.width = arguments
+                elif a == 2:
+                    self.height = arguments
+                elif a == 3:
+                    self.x = arguments
+                elif a == 4:
+                    self.y = arguments
+                    a += 1
+        elif kwargs:
+            for (k, val) in kwargs.items():
+                if k == "id":
+                    self.id = val
+                elif k == "width":
+                    self.width = val
+                elif k == "height":
+                    self.height = val
+                elif k == "x":
+                    self.x = val
+                elif k == "y":
+                    self.y = val
+
+    def to_dictionary(self):
+        """returns the dictionary representation of the Rectangle instance"""
+        return {
+            'id': self.id,
+            'width': self.width,
+            'height': self.height,
+            'x': self.x,
+            'y': self.y
+        }

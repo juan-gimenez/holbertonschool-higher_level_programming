@@ -3,11 +3,12 @@
 class
 """
 
-Base = __import__("base.py").Base
+from models.base import Base
 
 
 class Rectangle(Base):
     """init"""
+
     def __init__(self, width, height, x=0, y=0, id=None):
         """ init rectangle"""
         self.width = width
@@ -24,7 +25,7 @@ class Rectangle(Base):
     @width.setter
     def width(self, width):
         self.__width = width
-        if type(widht) is not int:
+        if type(width) is not int:
             raise TypeError("width must be an integer")
         elif width <= 0:
             raise ValueError("width must be > 0")
@@ -66,3 +67,16 @@ class Rectangle(Base):
             raise TypeError("y must be an integer")
         elif y < 0:
             raise ValueError("y must be >= 0")
+
+    def area(self):
+        """ returns the area"""
+        return(self.__width * self.__height)
+
+    def display(self):
+        """ display """
+        if self.width == 0 or self.height == 0:
+            return (rectangle)
+        for a in range(self.__height):
+            for b in range(self.__width):
+                print("#", end="")
+            print()

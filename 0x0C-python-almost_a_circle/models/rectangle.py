@@ -76,52 +76,39 @@ class Rectangle(Base):
         """ display """
         if self.width == 0 or self.height == 0:
             return (rectangle)
+        for y in range(self.y):
+            print()
         for a in range(self.__height):
+            for space in range(self.x):
+                print(" ", end="")
             for b in range(self.__width):
                 print("#", end="")
             print()
 
     def __str__(self):
-        """ print """
-        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} \
-- {self.__width}/{self.__height}"
+        """ str """
+        strid = "(" + str(self.id) + ") "
+        strxy = str(self.__x) + '/' + str(self.__y)
+        strwyh = str(self.__width) + '/' + str(self.__height)
+        return ("[Rectangle] " + strid + strxy + " - " + strwyh)
 
     def update(self, *args, **kwargs):
         """updates values of rect"""
-        length = len(args)
-        if args is not None and length > 0:
-            a = 0
-            for arguments in args:
-                if a == 0:
-                    self.id = arguments
-                elif a == 1:
-                    self.width = arguments
-                elif a == 2:
-                    self.height = arguments
-                elif a == 3:
-                    self.x = arguments
-                elif a == 4:
-                    self.y = arguments
-                    a += 1
-        elif kwargs:
-            for (k, val) in kwargs.items():
-                if k == "id":
-                    self.id = val
-                elif k == "width":
-                    self.width = val
-                elif k == "height":
-                    self.height = val
-                elif k == "x":
-                    self.x = val
-                elif k == "y":
-                    self.y = val
+        lenghtargs = len(args)
+        dictionaryofargs = {0: "id", 1: "width", 2: "height", 3: "x", 4: "y"}
+        if args is not None:
+            if lenghtargs < 6:
+                for a in range(lenghtargs):
+                    setattr(self, dictionaryofargs[a], args[a])
+        else:
+            for key in kwargs:
+                setattr(self, key, kwargs[key])
 
     def to_dictionary(self):
-        """returns the dictionary representation of the Rectangle instance"""
-        return {
-            'id': self.id,
-            'width': self.width,
-            'height': self.height,
-            'x': self.x,
-            'y': self.y
-        }
+        """returns a dictionary of rectangle"""
+        d = {'id': self.id,
+             'width': self.width,
+             'height': self.height,
+             'x': self.x,
+             'y': self.y, }
+        return d

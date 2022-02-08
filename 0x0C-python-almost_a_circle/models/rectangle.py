@@ -1,16 +1,12 @@
 #!/usr/bin/python3
-"""
-class
-"""
-
+""" Rectangle class"""
 from models.base import Base
 
 
 class Rectangle(Base):
-    """init"""
-
+    """Class from class Base"""
     def __init__(self, width, height, x=0, y=0, id=None):
-        """ init rectangle"""
+        """Init class """
         super().__init__(id)
         self.width = width
         self.height = height
@@ -19,11 +15,12 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        """property"""
+        """Attr width"""
         return self.__width
 
     @width.setter
     def width(self, value):
+        """Setting width"""
         if type(value) is not int:
             raise TypeError("width must be an integer")
         if value <= 0:
@@ -32,24 +29,26 @@ class Rectangle(Base):
 
     @property
     def height(self):
-        """property"""
+        """Attr height"""
         return self.__height
 
     @height.setter
     def height(self, value):
+        """Setting height"""
         if type(value) is not int:
             raise TypeError("height must be an integer")
         if value <= 0:
             raise ValueError("height must be > 0")
-        self.height = value
+        self.__height = value
 
     @property
     def x(self):
-        """property"""
+        """X """
         return self.__x
 
     @x.setter
     def x(self, value):
+        """Sett x"""
         if type(value) is not int:
             raise TypeError("x must be an integer")
         if value < 0:
@@ -58,20 +57,17 @@ class Rectangle(Base):
 
     @property
     def y(self):
+        """Y"""
         return self.__y
 
     @y.setter
     def y(self, value):
-        """ sett y """
+        """Sett y"""
         if type(value) is not int:
             raise TypeError("y must be an integer")
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
-
-    def area(self):
-        """ returns the area"""
-        return(self.__width * self.__height)
 
     def display(self):
         """ display """
@@ -86,11 +82,10 @@ class Rectangle(Base):
                 print("#", end="")
             print()
 
-    def __str__(self):
-        """ str """
-        return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x
-                                                        self.__y, self.__width,
-                                                        self.__height))
+    #  def __str__(self):
+    #     """ str """
+    # return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x\
+    #                                                self.__y, self.__width,self.__height))
 
     def update(self, *args, **kwargs):
         """updates values of rect"""

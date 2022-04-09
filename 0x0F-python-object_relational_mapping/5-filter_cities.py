@@ -7,7 +7,6 @@ not be executed when imported
 """
 if __name__ == "__main__":
     import MySQLdb
-    from sys import argv
     import sys
 
     datac = MySQLdb.connect(host="localhost",
@@ -17,8 +16,8 @@ if __name__ == "__main__":
                             db=sys.argv[3])
     arg = argv[4]
     curs = datac.cursor()
-    curs.execute("SELECT cities.name FROM cities JOIN states ON cities.state_id\
-                = states.id WHERE states.name LIKE BINARY %s ORDER BY\
+    curs.execute("SELECT cities.name FROM cities JOIN states ON cities.state_\
+                 id = states.id WHERE states.name LIKE BINARY %s ORDER BY\
                 cities.id;",
                  (arg, ))
     fall = curs.fetchall()

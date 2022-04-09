@@ -20,9 +20,12 @@ if __name__ == '__main__':
     Base.metadata.create_all(eng)
     Session = sessionmaker(bind=eng)
     sessions = Session()
-    for obj in sessions.query(State).order_by(State.id):
+    obj = sessions.query(State).order_by(State.id).first()
+    if obj is not None:
         print("{}: {}".format(obj.id, obj.name))
         """
         print obj and id
+        of first state
         """
-    sessions.close()
+    else:
+        print("Nothing")

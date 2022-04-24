@@ -7,10 +7,10 @@ from sys import argv
 from requests import post
 
 if __name__ == "__main__":
-    if len(argv) < 1:
-        q = ""
-    else:
+    if len(argv) > 1:
         q = argv[1]
+    else:
+        q = ""
     req = post('http://0.0.0.0:5000/search_user', data={'q': q})
     try:
         r_todic = r.json()
